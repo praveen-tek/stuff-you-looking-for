@@ -1,6 +1,11 @@
 # Student Resource Hub
 
-A website for MSME students to find teacher-recommended books, notes, and required materials for each subject all in one place instead of scattered across group chats.
+<div align="center">
+  <img src="./public/dandelions.png" alt="Student Resource Hub" width="200">
+</div>
+
+
+## A website for MSME students to find teacher-recommended books, notes, and required materials for each subject all in one place instead of scattered across group chats.
 
 ## Idea
 
