@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   output: "export",
   basePath: isProd ? "/stuff-you-looking-for" : "", 
   images: {
-    unoptimized: true,
+    unoptimized: false,
   },
 };
 
