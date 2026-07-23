@@ -59,7 +59,6 @@ export default function Receipt() {
   const handleDownload = async () => {
     if (!receiptRef.current) return;
 
-    // Switiching to download state replace the shader with the static images using @paper suggested image/webp and capture that and save it
     try {
       setIsDownloading(true);
       await new Promise((resolve) => setTimeout(resolve, 150));
@@ -75,7 +74,6 @@ export default function Receipt() {
     } catch (err) {
       console.error("Failed to generate receipt image:", err);
     } finally {
-      // Switch back to live WebGL shader
       setIsDownloading(false);
     }
   };
@@ -210,15 +208,7 @@ export default function Receipt() {
         </div>
       </div>
 
-      <div className="flex flex-col items-center gap-3 z-10">
-        <button
-          onClick={handleDownload}
-          disabled={isDownloading}
-          className="px-6 py-2.5 bg-gray-900 text-white font-mono text-xs uppercase tracking-wider rounded-sm shadow-md hover:bg-gray-800 transition-colors disabled:opacity-50 cursor-pointer"
-        >
-          {isDownloading ? "Generating Image..." : "Download Receipt"}
-        </button>
-
+      <div className="flex flex-col items-center gap-3 z-10 mb-16 sm:mb-0">
         <div className="flex flex-wrap items-center justify-center gap-2 font-mono text-xs text-gray-700">
           <span className="bg-white/60 backdrop-blur-sm px-3 py-1 rounded-full border border-gray-200 shadow-sm">
             Crafted by{" "}
@@ -253,6 +243,14 @@ export default function Receipt() {
           </a>
         </div>
       </div>
+
+      <button
+        onClick={handleDownload}
+        disabled={isDownloading}
+        className="fixed bottom-5 right-5 z-50 px-5 py-3 bg-gray-900 text-white font-mono text-xs uppercase tracking-wider rounded-xl shadow-2xl hover:bg-gray-800 transition-all active:scale-95 disabled:opacity-50 cursor-pointer border border-gray-700"
+      >
+        {isDownloading ? "Generating..." : "Download Receipt"}
+      </button>
     </div>
   );
 }
