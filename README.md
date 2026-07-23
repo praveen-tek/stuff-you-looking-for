@@ -16,6 +16,10 @@
 - Students and friends can browse by semester, subject, or course code.
 - Content is contributed by students themselves — crowdsourced and kept updated each session.
 
+## Project Structure
+- `page.tsx` contains the code related for the UI & Download Function do not change it until it is a direct performance boost or any UI fix
+- `content/items.ts` contains the static content of the page from the name, price and link to the material or book along with terms and stuff please only change the items do not change the any of the statis which are not directly related to the college material if you have any issue with any contnet use issue or suggestion 
+
 ## Contributing
 
 1. Fork the repo and clone your fork.
