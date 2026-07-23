@@ -21,6 +21,10 @@ export interface ReceiptContent {
   items: ReceiptItem[];
 }
 
+// Automatically appends the base path when built for GitHub Pages production
+const basePath =
+  process.env.NODE_ENV === "production" ? "/stuff-you-looking-for" : "";
+
 export const receiptContent: ReceiptContent = {
   storeName: "MSME",
   subtitle: "SEMESTER 1",
@@ -31,11 +35,11 @@ export const receiptContent: ReceiptContent = {
     "These resources are curated through peer recommendations, student confirmations, and faculty suggestions. If you have questions regarding any material, please reach out to the department authority.",
   githubRepo: "praveen-tek/stuff-you-looking-for",
   images: {
-    pageBackground: "/background.png",
+    pageBackground: `${basePath}/background.png`,
     shaderTexture:
       "https://app.paper.design/file-assets/01KAA2GZFSDFEH1RRF4G8FHFFC/01KY7XJ7K3ZEVPNM3MK05587FF.webp",
-    headerLogo: "/dandelions.png",
-    barcodeGif: "/barcode.gif",
+    headerLogo: `${basePath}/dandelions.png`,
+    barcodeGif: `${basePath}/barcode.gif`,
   },
   items: [
     {
