@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import { HalftoneDots } from "@paper-design/shaders-react";
 import { toPng } from "html-to-image";
 import { receiptContent } from "@/content/items";
 
@@ -61,7 +60,6 @@ export default function Receipt() {
 
     try {
       setIsDownloading(true);
-      await new Promise((resolve) => setTimeout(resolve, 150));
       const dataUrl = await toPng(receiptRef.current, {
         cacheBust: true,
         pixelRatio: 2,
@@ -92,39 +90,12 @@ export default function Receipt() {
         ref={receiptRef}
         className="relative w-full max-w-sm rounded-sm shadow-lg overflow-hidden bg-[#F2F1E8]"
       >
-        {isDownloading ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={images.shaderTexture}
-            alt="Receipt Texture"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        ) : (
-          <HalftoneDots
-            contrast={0.4}
-            originalColors
-            inverted={false}
-            grid="hex"
-            radius={0.05}
-            size={0.15}
-            scale={1}
-            image={images.shaderTexture}
-            grainMixer={0.15}
-            grainOverlay={0.15}
-            grainSize={0.005}
-            type="soft"
-            fit="cover"
-            colorFront="#2B2B2B"
-            colorBack="#00000000"
-            style={{
-              backgroundColor: "#F2F1E8",
-              position: "absolute",
-              inset: 0,
-              width: "100%",
-              height: "100%",
-            }}
-          />
-        )}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={images.shaderTexture}
+          alt="Receipt Texture"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
         <div className="relative px-5 sm:px-8 py-6 sm:py-10 font-mono text-gray-900">
           <h1 className="text-xl sm:text-2xl font-bold text-center tracking-wide">
@@ -247,7 +218,7 @@ export default function Receipt() {
       <button
         onClick={handleDownload}
         disabled={isDownloading}
-        className="fixed bottom-5 right-5 z-50 px-5 py-3 bg-gray-900 text-white font-mono text-xs uppercase tracking-wider rounded-xl shadow-2xl hover:bg-gray-800 transition-all active:scale-95 disabled:opacity-50 cursor-pointer border border-gray-700"
+        className="fixed bottom-5 right-5 z-50 px-5 py-3 bg-gray-900 text-white font-mono text-xs uppercase tracking-wider rounded-full shadow-2xl hover:bg-gray-800 transition-all active:scale-95 disabled:opacity-50 cursor-pointer border border-gray-700"
       >
         {isDownloading ? "Generating..." : "Download Receipt"}
       </button>
