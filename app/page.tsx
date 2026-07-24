@@ -130,7 +130,7 @@ export default function Receipt() {
             <span>PRICE</span>
           </div>
 
-          <div className="text-[16px] sm:text-[8px] mt-2 space-y-3">
+          <div className="text-sm sm:text-base mt-2 space-y-3">
             {items.map((item, i) => (
               <div key={i} className="flex justify-between gap-3">
                 <a
