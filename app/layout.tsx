@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
 import "../styles/fonts.css";
+import SmoothScroll from "../providers/smooth-scroll";
 
 export const metadata: Metadata = {
   title: "Suff You Are Looking For",
@@ -16,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={` h-full antialiased`}>
       <body className="min-h-full flex flex-col ">
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );

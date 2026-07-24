@@ -130,7 +130,7 @@ export default function Receipt() {
             <span>PRICE</span>
           </div>
 
-          <div className="text-[11px] sm:text-xs mt-2 space-y-3">
+          <div className="text-[16px] sm:text-[8px] mt-2 space-y-3">
             {items.map((item, i) => (
               <div key={i} className="flex justify-between gap-3">
                 <a
@@ -218,7 +218,7 @@ export default function Receipt() {
       <button
         onClick={handleDownload}
         disabled={isDownloading}
-        className="fixed bottom-5 right-5 z-50 px-5 py-3 bg-gray-900 text-white font-mono text-xs uppercase tracking-wider rounded-full shadow-2xl hover:bg-gray-800 transition-all active:scale-95 disabled:opacity-50 cursor-pointer border border-gray-700"
+        className="fixed bottom-5 right-5 z-50 px-4 py-2 bg-neutral-900 text-white text-sm font-medium rounded-full shadow-lg hover:bg-neutral-800 transition-all active:scale-95 disabled:opacity-50 cursor-pointer"
       >
         {isDownloading ? "Generating..." : "Download Receipt"}
       </button>
