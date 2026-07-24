@@ -36,11 +36,14 @@ export default function Receipt() {
         const data = await response.json();
         if (data && data.length > 0) {
           const rawDate = data[0].commit.committer.date;
-          const formattedDate = new Date(rawDate).toLocaleDateString("en-US", {
+          const formattedDate = new Date(rawDate).toLocaleString("en-US", {
             weekday: "long",
             year: "numeric",
             month: "long",
             day: "numeric",
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true,
           });
           setLastUpdated(formattedDate.toUpperCase());
         }
